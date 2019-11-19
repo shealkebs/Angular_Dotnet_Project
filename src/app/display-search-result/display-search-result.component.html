@@ -1,0 +1,33 @@
+
+<div class="container-fluid  mt-0" style="background:rgb(232, 214, 255)">
+    <div class="col-md-12 " style="background:rgb(222, 204, 245)">
+            <label class="h2 text-center col-md-5">Results for your Search</label>
+            <label class="h6 text-right col-md-5 " id="len">Total Records Found : {{Searchedclients.length}}</label>
+          <label class="col-md-2 text-right"><button type="submit" class="btn btn-primary btn-md mb-2">Add New Client</button></label>
+      
+    </div>
+    <div class="container">
+        <table class="table table-hover text-center">                   
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Full Name</th>
+                            <th>Birth Date</th>
+                            <th>Address</th>
+                        </tr> 
+                     </thead>
+                     <tbody>
+                       <tr *ngFor="let client of Searchedclients">                              
+                            <td>{{client.ClientID}}</td>
+                            <td>{{client.FirstName}} {{client.LastName}}</td>
+                            <td>{{client.BirthDate}}</td>
+                            <td *ngFor="let add of client.clientAddresses">{{add.ClientLocation}}-{{add.City}}</td>
+                        </tr>
+                        <tr *ngIf="Searchedclients.length==0" >
+                            <td id="empty">No Records Found</td>
+                        </tr>
+                     </tbody>               
+        </table>
+    </div>
+</div>
+

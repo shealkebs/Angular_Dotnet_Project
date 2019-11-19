@@ -1,0 +1,24 @@
+
+<div class="container-fluid" style="background:rgb(240, 241, 240)">
+    <form  #clientForm="ngForm">
+    <div class="h2 text-center mt-1">Find Existing Clients </div>
+    <div class="h5 text-center">Enter at least one place of identifying information to find an existing client </div>
+    <div class="form-group  mt-5">
+        <div class="row">
+            <div class="col-md-12">
+                    <label class="col-md-2">Search By First Name: </label>
+                    <input class="col-md-3"type="text" name="FirstName" id="fnm" #FirstName="ngModel"[(ngModel)]="clientService.selectedClient.FirstName" placeholder="Enter First Name">
+                    <label class="col-md-2">Search By Last Name: </label>
+                    <input class="col-md-3" type="text" name="LastName" id="lnm" #LastName="ngModel"[(ngModel)]="clientService.selectedClient.LastName" placeholder="Enter First Name">
+            </div>                                      
+        </div>
+            
+    </div>
+        <div class=" text-center mt-4">
+            <button type="submit" class="btn btn-success btn-md col-2 mb-3 " (click)="searchForm(clientForm)">Search</button>
+        
+            <button type="clear" class="btn btn-secondary btn-md col-2 mb-3 ml-5" (click)="resetForm(clientForm)">Clear</button>
+        </div>
+    </form>
+    </div>
+    <app-display-search-result [Searchedclients]="searchedclients"></app-display-search-result>
